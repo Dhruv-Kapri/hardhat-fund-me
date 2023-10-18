@@ -1,0 +1,23 @@
+# testings
+/coverage
+
+# production
+# build
+
+# misc
+.node_modules
+/frontend/node_modules
+/backend/node_modules
+/backend/.env
+
+.DS_Store
+
+/client/src/.env
+.env.local
+.env.development.local
+.env.production
+.env.production.local
+
+
+
+

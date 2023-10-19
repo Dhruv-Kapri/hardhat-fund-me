@@ -1,12 +1,9 @@
-import { useState } from "react";
 import { ethers } from "ethers";
 import ListenTransaction from "./ListenTransaction";
 
-import { abi, contractAddress } from "./constants.js";
+import { abi, contractAddress } from "./Constants.jsx";
 
 const Transfer = () => {
-  const [buttonContent, setButtonContent] = useState("Connect to Wallet");
-
   const fund = async () => {
     const ethAmount = document.getElementById("ethAmount").value;
     console.log(`Funding with ${ethAmount}...`);
@@ -28,7 +25,8 @@ const Transfer = () => {
         console.error(error);
       }
     } else {
-      setButtonContent("Please install metamask!");
+      document.getElementById("connectButton").innerHTML =
+        "Please install metamask!";
     }
   };
 
@@ -36,7 +34,9 @@ const Transfer = () => {
     <>
       <label htmlFor="fund">ETH Amount</label>
       <input id="ethAmount" placeholder="0.1" />
-      <button id="fundButton">Fund</button>
+      <button id="fundButton" onClick={fund}>
+        Fund
+      </button>
     </>
   );
 };

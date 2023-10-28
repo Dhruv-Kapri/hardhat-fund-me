@@ -8,7 +8,8 @@ import { BsFillLockFill } from "react-icons/bs";
 const Withdraw = () => {
   const withdrawFromWallet = async () => {
     if (typeof window.ethereum !== "undefined") {
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      // const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const provider = await new ethers.BrowserProvider(window.ethereum);
       const signer = provider.getSigner();
       const contract = new ethers.Contract(contractAddress, abi, signer);
       try {

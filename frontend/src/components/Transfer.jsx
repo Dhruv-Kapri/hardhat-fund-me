@@ -13,12 +13,13 @@ const Transfer = () => {
       // signer / wallet / someone with gas
       // contract that we are interacting with
       // ^ ABI & Address
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      // const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const provider = await new ethers.BrowserProvider(window.ethereum);
       const signer = provider.getSigner();
       const contract = new ethers.Contract(contractAddress, abi, signer);
       try {
         const transactionResponse = await contract.fund({
-          value: ethers.utils.parseEther(ethAmount),
+          value: ethers.parseEther(ethAmount),
         });
         await ListenTransaction(transactionResponse, provider);
         console.log(`Funded with ${ethAmount}...`);

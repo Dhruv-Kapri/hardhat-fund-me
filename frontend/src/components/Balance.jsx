@@ -9,9 +9,10 @@ const Balance = () => {
   const [balance, setBalance] = useState("");
   const getBalance = async () => {
     if (typeof window.ethereum !== "undefined") {
-      const provider = await new ethers.providers.Web3Provider(window.ethereum);
+      // const provider = await new ethers.providers.Web3Provider(window.ethereum);
+      const provider = await new ethers.BrowserProvider(window.ethereum);
       const balance = await provider.getBalance(contractAddress);
-      setBalance(`${ethers.utils.formatEther(balance)} Ethereum`);
+      setBalance(`${ethers.formatEther(balance)} Ethereum`);
       console.log();
     } else {
       document.getElementById("connectButton").innerHTML =

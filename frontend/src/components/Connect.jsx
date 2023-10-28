@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Button } from "@mantine/core";
 
 const Connect = () => {
   const [buttonContent, setButtonContent] = useState("Connect to Wallet");
@@ -20,9 +21,18 @@ const Connect = () => {
   };
 
   return (
-    <button id="connectButton" onClick={connectToWallet}>
+    <Button
+      variant="filled"
+      color="cyan"
+      size="md"
+      radius="md"
+      id="connectButton"
+      onClick={connectToWallet}
+    >
+      {/* <button id="connectButton" onClick={connectToWallet}> */}
       {buttonContent}
-    </button>
+      {/* </button> */}
+    </Button>
   );
 };
 

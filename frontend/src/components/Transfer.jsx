@@ -1,4 +1,5 @@
 import { ethers } from "ethers";
+import { Button, TextInput } from "@mantine/core";
 import ListenTransaction from "./ListenTransaction";
 
 import { abi, contractAddress } from "./Constants.jsx";
@@ -32,11 +33,26 @@ const Transfer = () => {
 
   return (
     <>
-      <label htmlFor="fund">ETH Amount</label>
-      <input id="ethAmount" placeholder="0.1" />
-      <button id="fundButton" onClick={fund}>
-        Fund
-      </button>
+      {/* <label htmlFor="fund">ETH Amount</label> */}
+      {/* <input id="ethAmount" placeholder="0.1" /> */}
+      <TextInput
+        placeholder="0.1"
+        label="ETH Amount"
+        id="ethAmount"
+        size="md"
+        rightSection={
+          <Button
+            variant="filled"
+            color="cyan"
+            size="md"
+            radius="md"
+            id="fundButton"
+            onClick={fund}
+          >
+            Fund
+          </Button>
+        }
+      />
     </>
   );
 };

@@ -2,6 +2,8 @@ import { ethers } from "ethers";
 import ListenTransaction from "./ListenTransaction";
 
 import { abi, contractAddress } from "./Constants";
+import { Button } from "@mantine/core";
+import { BsFillLockFill } from "react-icons/bs";
 
 const Withdraw = () => {
   const withdrawFromWallet = async () => {
@@ -22,9 +24,17 @@ const Withdraw = () => {
   };
 
   return (
-    <button id="withdrawButton" onClick={withdrawFromWallet}>
+    <Button
+      variant="filled"
+      color="cyan"
+      size="md"
+      radius="md"
+      id="withdrawButton"
+      onClick={withdrawFromWallet}
+    >
+      <BsFillLockFill />
       Withdraw
-    </button>
+    </Button>
   );
 };
 
